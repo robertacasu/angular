@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+</head>
+
+<body ng-app="app">
+    <!-- mainController -->
+    <div ng-controller="mainController">
+        <h1 ng-bind="titolo"></h1>
+        <!-- {{3+2}} -->
+        <input type="text" ng-model="utente.nome">
+        <h2 ng-bind="utente.nome"></h2>
+
+        <input type="text" ng-model="utente.cognome">
+        <h2 ng-bind="utente.cognome"></h2>
+    </div>
+    <hr>
+    <!-- dueController -->
+    <div ng-controller="dueController">
+        <h1>Controller 2</h1>
+<form ng-submit="inserisci()">
+        <label >nome</label> <input type="text" ng-model="nuovo.nome">
+        <label >cognome</label> <input type="text" ng-model="nuovo.cognome">
+        <button class="btn"> Inserisci</button>
+    </form>
+<hr>
+
+        <!-- <input type="text" ng-model="utentedue.nome">
+        <h2 ng-bind="utentedue.nome"></h2>
+
+        <input type="text" ng-model="utentedue.cognome">
+        <h2 ng-bind="utentedue.cognome"></h2> -->
+        <!-- <p ng-repeat="numero in [1,2,3,4,5,6,7,8,9,10]" ng-bind="numero"></p> -->
+        <div ng-repeat="el in utenti track by $index">
+            <h2 ng-bind="el.nome"></h2>
+            <h4 ng-bind="el.cognome"></h4>
+            <button class="btn" ng-click="cancella($index)">elimina</button>
+        </div>
+
+
+
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="mainController.js"></script>
+<script src="dueController.js"></script>
+
+</html>
